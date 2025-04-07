@@ -14,7 +14,11 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors()); // Enable Cross-Origin Resource Sharing
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+})); // Enable Cross-Origin Resource Sharing with specific options
 app.use(express.json()); // to parse JSON bodies
 
 // ===All Routes=== //
